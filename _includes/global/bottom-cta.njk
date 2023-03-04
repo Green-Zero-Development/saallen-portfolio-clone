@@ -1,0 +1,25 @@
+<style>
+    .bottom-cta-section {
+        background-image: url('https://inside.saallen.com/wp-content/uploads/2021/09/bottom-cta-bk.jpg');
+    }
+    .bottom-cta-title {
+        font-family: libre-franklin, sans-serif;
+        font-size: 40px;
+        font-weight: 800;
+        color: #D1C9AE;
+        letter-spacing: 0px;
+    }
+    .bottom-cta-paragraph {
+        color: #F6F4EF;
+        font-size: 18px;
+        line-height: 27px;
+    }
+</style>
+
+<div class="text-center py-16 bottom-cta-section">
+    <h5 class="uppercase bottom-cta-title">{{ globalSections.bottomCta.title | safe }}</h5>
+    <p class="max-w-xl mx-auto pt-5 pb-8 px-4 bottom-cta-paragraph">{{ globalSections.bottomCta.paragraph | safe }}</p>
+    <a href="{{ globalSections.bottomCta.buttonLink }}">
+        <button class="filled-button">{{ globalSections.bottomCta.buttonText }}</button>
+    </a>
+</div>

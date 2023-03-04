@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  {% include "./head/all.njk" %}
+    <style>
+      {% include "assets/css/main.css" %}
+    </style>
+    {% include "header.njk" %}
+  <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQH4M66"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+    <main>
+      {{ content | safe }}
+    </main>
+
+    {% include "footer.njk" %}
+    <script src="{{ page | relative }}assets/js/main.js"></script>
+  </body>
+</html>

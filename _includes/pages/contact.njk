@@ -1,0 +1,156 @@
+<style>
+    .contact-page-social-icon {
+        color: #485B43;
+    }
+</style>
+
+<div class="flex flex-wrap max-w-7xl mx-auto py-24 px-6 lg:px-10">
+    <div class="w-full md:w-1/2">
+        <h1 class="uppercase contact-page-title">Contact Us</h1>
+        <p class="max-w-lg pb-8 pr-3 contact-page-paragraph">Call or email us today to learn more about how we can assist you with your timber harvesting needs.</p>
+        <div class="flex flex-wrap sm:flex-nowrap pb-10">
+            <div class="w-full sm:w-1/2 lg:w-5/12 pb-10 md:pb-0 pr-3">
+                <h3 class="contact-page-details-title">Address</h3>
+                <a href="https://goo.gl/maps/EEXmqWM8Fx9zWWuBA" target="_blank">
+                    <address class="w-full py-3 contact-page-details-paragraph">
+                        {% for item in global.siteAddresses[0].acf.value_list %}{% if item.type == 'Headquarters' %}{{ item.street }}
+                        <br />
+                        {{ item.city }}, {{ item.state }} {{ item.zip }}
+                        {% endif %}{% endfor %}
+                    </address>
+                </a>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-5/12">
+                <h3 class="contact-page-details-title">Hours</h3>
+                {% for item in global.businessHours[0].acf.value_list %}
+                    <div class="w-full contact-page-details-paragraph">
+                        {{ item.days }}<br /> {% if item.closed_for_days.length %}Closed{% else %}<span class="lowercase">{{ item.open }}</span><span>-</span><span class="lowercase">{{ item.close }}</span>{% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="flex flex-wrap sm:flex-nowrap pb-10">
+            <div class="w-full sm:w-1/2 lg:w-5/12 pb-10 md:pb-0 pr-3">
+                <h3 class="contact-page-details-title">Phone</h3>
+                <a class="" href='tel:{% for item in global.sitePhone[0].acf.value_list %}{% if item.type == "Primary" %}{{ item.value }}{% endif %}{% endfor %}'>
+                    {% for item in global.sitePhone[0].acf.value_list %}{% if item.type == "Primary" %}{{ item.value }}{% endif %}{% endfor %}
+                </a>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-5/12">
+                <h3 class="contact-page-details-title">Email</h3>
+                <a class="" href='mailto:{% for item in global.siteEmails[0].acf.value_list %}{% if item.type == "Primary" %}{{ item.value }}{% endif %}{% endfor %}'>
+                    {% for item in global.siteEmails[0].acf.value_list %}{% if item.type == "Primary" %}{{ item.value }}{% endif %}{% endfor %}
+                </a>
+            </div>
+        </div>
+        {# <div class="flex flex-wrap sm:flex-nowrap pb-10">
+            <div class="w-full sm:w-1/2 lg:w-5/12 pb-10 md:pb-0 pr-3">
+                <h3 class="contact-page-details-title">Social</h3>
+                <a href="{{ global.siteSocial[0].instagram }}" target="_blank">
+                    <i class="text-3xl mr-4 opacity-75 hover:opacity-100 contact-page-social-icon fab fa-instagram"></i>
+                </a>
+                <a href="{{ global.siteSocial[0].facebook }}" target="_blank">
+                    <i class="text-3xl opacity-75 hover:opacity-100 contact-page-social-icon fab fa-facebook-square"></i>
+                </a>
+            </div>
+            <a href="/faqs/" class="w-full sm:w-1/2 lg:w-5/12">
+                <h3 class="contact-page-details-title"><u>FAQs</u></h3>
+            </a>
+        </div> #}
+    </div>
+
+    <style>
+        .cog-form__container {
+            background-color: #f6f4ef !important;
+        }
+        .cog-header {
+            display: none !important;;
+        }
+        .cog-label {
+            font-family: frank-new, sans-serif !important;
+            font-size: 16px !important;
+            font-weight: 700 !important;
+            color: #123330 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.1em !important;
+        }
+        .cog-input input {
+            font-family: frank-new, sans-serif !important;
+            font-size: 16px !important;
+            border: solid 1px #485B43 !important;
+            color: #485B43 !important;
+            padding: 12px 20px 12px 20px !important;
+            margin: 4px 0 0 0 !important;
+            border-radius: 8px !important;
+        }
+        .cog-input textarea {
+            height: 160px !important;
+            font-family: frank-new, sans-serif !important;
+            font-size: 16px !important;
+            border: solid 1px #485B43 !important;
+            color: #485B43 !important;
+            padding: 12px 20px 12px 20px !important;
+            margin: 4px 0 0 0 !important;
+            border-radius: 8px !important;
+        }
+        .cog-page__navigation {
+            float: right !important;
+        }
+        .cog-page__navigation .el-button {
+            background-color: transparent !important;
+            font-family: frank-new, sans-serif !important;
+            font-weight: 800 !important;
+            font-size: 12px !important;
+            line-height: 110% !important;
+            letter-spacing: 0.1em !important;
+            text-transform: uppercase !important;
+            color: #183323 !important;
+            border: 1px solid #313E2D !important;
+            border-radius: 24px !important;
+            margin: 0 auto 0 0 !important;
+            padding: 15px 60px 13px 60px !important;
+            transition: .25s !important;
+        }
+        .cog-page__navigation .el-button:hover {
+            background-color: #313E2D !important;;
+            color: #E3DFCF !important;;
+            cursor: pointer !important;;
+            transition: .25s !important;;
+        }
+
+        .cog-page__navigation .el-button:active {
+            transform: scale(0.95) !important;;
+            transition: .05s !important;;
+        }
+    </style>
+    <div class="w-full md:w-1/2">
+        <script src="https://www.cognitoforms.com/f/seamless.js" data-key="IG83lPQs7UKU2FDeP--HlA" data-form="1"></script>
+        <!-- <form action="https://formspree.io/f/xayavjev" method="POST">
+            <input name="subject" value="Contact from Website" class="opacity-0 w-0 h-0 p-0 m-0" disabled/>
+            <input type="text" name="_gotcha" style="display:none" />
+            <div class="input-group">
+                <label class="w-full">First Name<span class="form-required">*</span></label>
+                <input type="text" name="First-Name" placeholder="John" class="w-full" required />
+            </div>
+            <div class="input-group">
+                <label class="w-full">Last Name<span class="form-required">*</span></label>
+                <input type="text" name="Last-Name" placeholder="Doe" class="w-full" required />
+            </div>
+            <div class="input-group">
+                <label class="w-full">Phone Number<span class="form-required">*</span></label>
+                <input type="tel" name="Phone-Number" placeholder="000-000-0000" class="w-full" required />
+            </div>
+            <div class="input-group">
+                <label class="w-full">Email<span class="form-required">*</span></label>
+                <input type="email" name="Email" placeholder="timber@email.com" class="w-full" required />
+            </div>
+            <div class="input-group">
+                <label class="w-full">Message<span class="form-required">*</span></label>
+                <textarea name="Message" placeholder="Type your message..." class="w-full h-40" required ></textarea>
+            </div>
+            <div class="w-full text-right">
+                <input type="submit" value="Submit" class="" />
+            </div>
+        </form> -->
+    </div>
+</div>

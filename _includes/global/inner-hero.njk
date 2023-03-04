@@ -1,0 +1,33 @@
+<style>
+.hero-section {
+    background-image: url('{{ wpage.heroImg }}');
+}
+
+.hero-gradient {
+    background-color: #183323;
+    opacity: 0.5;
+}
+
+{% if wpage.heroTitleColor == "Yellow" %}
+.hero-title {
+    color: #F9A41A;
+}
+{% else %}
+.hero-title {
+    color: #F6F4EF;
+}
+{% endif %}
+</style>
+
+<div class="relative py-32 bg-cover bg-center bg-norepeat text-center hero-section">
+    <div class="absolute top-0 w-full h-full z-10 hero-gradient"></div>
+    <div class="relative max-w-4xl mx-auto z-20">
+        <h1 class="text-3xl md:text-h1-init uppercase px-6 hero-title">{{ wpage.heroTitle }}</h1>
+        <p class="text-base sm:text-lg md:text-2xl font-bold pt-5 pb-8 px-8 md:px-12 hero-paragraph">{{ wpage.heroParagraph }}</p>
+        {% if wpage.heroButtonText !== '' %}
+        <a href="{{ wpage.heroButtonLink }}">
+            <button class="lg-filled-button">{{ wpage.heroButtonText }}</button>
+        </a>
+        {% endif %}
+    </div>
+</div>

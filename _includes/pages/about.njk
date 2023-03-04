@@ -1,0 +1,97 @@
+<style>
+    .founder-name {
+        color: #485B43;
+    }
+    .founder-subtitle {
+        color: #313E2D;
+    }
+</style>
+
+{% include "global/inner-hero.njk" %}
+
+{% for item in wpage.contentBoxes %}
+
+{% if loop.index % 2 %}
+<style>
+    .about-img-{{ item.image.id }} {
+        background-image: url('{{ item.image.url }}');
+    }
+</style>
+<div class="flex flex-wrap items-start md:items-center max-w-7xl mx-auto pt-24 px-6">
+    {% if item.image.id %}
+    <div class="w-full sm:w-5/12 md:w-7/12 bg-cover bg-center bg-norepeat mx-auto py-24 md:py-48 rounded-lg about-img-{{ item.image.id }}">
+
+    </div>
+    {% else %}
+
+    {% endif %}
+    <div class="w-full sm:w-5/12 my-6 md:mt-0 mx-auto md:pl-6 lg:pl-20">
+        <h2 class="text-3xl md:text-h2-init uppercase pb-3 content-box-title">{{ item.title }}</h2>
+        <p class="text-sm md:text-p-lg-init pb-6 content-box-paragraph">{{ item.paragraph }}</p>
+        {% if item.button.text != null %}
+            <a href="{{ item.button.link }}">
+                <button class="text-base green-arrow-button">{{ item.button.text }}</button>
+            </a>
+        {% endif %}
+    </div>
+</div>
+{% else %}
+<style>
+    .about-img-{{ item.image.id }} {
+        background-image: url('{{ item.image.url }}');
+    }
+</style>
+<div class="flex flex-wrap items-start md:items-center flex-col-reverse sm:flex-row max-w-7xl my-6 md:mt-0 mx-auto pt-24 px-6">
+    <div class="w-full sm:w-5/12 mx-auto md:pr-6 lg:pr-20">
+        <h2 class="text-3xl md:text-h2-init uppercase pb-3 content-box-title">{{ item.title }}</h2>
+        <p class="text-sm md:text-p-lg-init pb-6 content-box-paragraph">{{ item.paragraph }}</p>
+        {% if item.button.text != null %}
+            <a href="{{ item.button.link }}">
+                <button class="text-base green-arrow-button">{{ item.button.text }}</button>
+            </a>
+        {% endif %}
+    </div>
+    {% if item.image.id %}
+    <div class="w-full sm:w-5/12 bg-cover bg-center bg-norepeat mb-6 mx-auto py-24 md:py-72 rounded-lg about-img-{{ item.image.id }}">
+
+    </div>
+
+    {% else %}
+    <div class="flex w-full sm:w-1/2 md:w-7/12 mx-auto pb-6">
+        {% for item1 in wpage.founders %}
+            <div class="w-5/12 mr-auto md:mr-0 ml-0 md:ml-auto">
+                <img class="rounded-lg" src="{{ item1.image.url }}" />
+                <h6 class="pt-4 pb-2 leading-none founder-name">{{ item1.name }}</h6>
+                <p class="text-sm leading-none founder-subtitle">{{ item1.subtitle }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="bg-forestgreen pb-8 pt-12">
+    <div class= "lg:max-w-6xl mx-auto md:max-w-2xl">
+        <h2 class= "text-3xl md:text-h2-init text-deepCream text-center font-frank-libre">MEET THE TEAM</h2>
+        <p class="text-sm text-lightCream md:text-h5-init text-center font-frank-new pt-3 pb-8">S.A. Allen Timber’s team has a combined experience of over 120 <br>years in the forest products industry.</p>
+
+        <div class= "flex flex-wrap">
+            {% for item in wpage.teamMembers %}
+                <div class="w-full md:w-1/2 lg:w-1/4 sm:w-1/2 md:p-4 mx-auto px-5 pb-8 md:pb-12">
+                    <img src="{{ item.headshot.url }}" alt="man infront of wood" class="rounded-lg w-full mb-3">
+                    <div>
+                        <h5 class="font-frank-new text-lightCream">{{ item.title }}</h5>
+                        <p class="font-frank-new text-lightCream">{{ item.job_title }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% endif %}
+
+{% endfor %}
+
+<div class="py-12"></div>
+
+{% include "global/bottom-cta.njk" %}

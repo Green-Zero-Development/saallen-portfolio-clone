@@ -1,0 +1,97 @@
+<footer class="flex flex-wrap bg-black text-cream pt-16 px-2 sm:px-6 lg:px-16">
+    <img class="md:hidden w-32 mx-auto pb-10 footer-logo" src="{{ global.siteLogos[0].acf.footer_logo.url }}" />
+    <div class="flex flex-wrap items-start w-full max-w-8xl xl:justify-evenly mx-auto px-6">
+        <div class="pb-8">
+            <img class="hidden md:block pb-8 footer-logo" src="{{ global.siteLogos[0].acf.footer_logo.url }}" />
+            {# <img class="hidden md:block footer-logo" src="{{ global.siteLogos[0].acf.footer_certified_logo.url }}" /> #}
+        </div>
+        <ul class="pb-8 md:pl-40 pr-6">
+            {% for item in menus.footerMenu1 %}
+                <a href="{{ item.url }}">
+                    <li class="footer_top-title {% if loop.first !== true %}pt-6{% endif %} pb-1">{{ item.title }}</li>
+                </a>
+                {% if item.children.length %}
+                    {% for item1 in item.children %}
+                        <a href="{{ item1.url }}">
+                            <li class="footer_child-title">{{ item1.title }}</li>
+                        </a>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <ul class="pb-8 pr-6">
+            {% for item in menus.footerMenu2 %}
+                <a href="{{ item.url }}">
+                    <li class="footer_top-title {% if loop.first !== true %}pt-6{% endif %} pb-1">{{ item.title }}</li>
+                </a>
+                {% if item.children.length %}
+                    {% for item1 in item.children %}
+                        <a href="{{ item1.url }}">
+                            <li class="footer_child-title">{{ item1.title }}</li>
+                        </a>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <ul class="pb-8 pr-6">
+            {% for item in menus.footerMenu3 %}
+                <a href="{{ item.url }}">
+                    <li class="footer_top-title {% if loop.first !== true %}pt-6{% endif %} pb-1">{{ item.title }}</li>
+                </a>
+                {% if item.children.length %}
+                    {% for item1 in item.children %}
+                        <a href="{{ item1.url }}">
+                            <li class="footer_child-title">{{ item1.title }}</li>
+                        </a>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <div class="pb-8 pr-6">
+            <h6 class="footer_top-title">Address</h6>
+            <a href="https://goo.gl/maps/EEXmqWM8Fx9zWWuBA" target="_blank">
+                <address class="w-full py-3 footer-address">
+                    {% for item in global.siteAddresses[0].acf.value_list %}{% if item.type == 'Headquarters' %}{{ item.street }}
+                    <br />
+                    {{ item.city }}, {{ item.state }} {{ item.zip }}
+                    {% endif %}{% endfor %}
+                </address>
+            </a>
+            <h6 class="footer_top-title">Phone</h6>
+            <a class="footer-tele" href='tel:{% for item in global.sitePhone[0].acf.value_list %}{% if item.type == "Primary" %}{{ item.value }}{% endif %}{% endfor %}'>
+                {% for item in global.sitePhone[0].acf.value_list %}{% if item.type == "Primary" %}{{ item.value }}{% endif %}{% endfor %}
+            </a>
+            <h6 class="pt-8 pb-2 footer_top-title">Hours</h6>
+            {% for item in global.businessHours[0].acf.value_list %}
+                <div class="w-full footer-hours">
+                    {{ item.days }}, {% if item.closed_for_days.length %}Closed{% else %}<span class="lowercase">{{ item.open }}</span><span>-</span><span class="lowercase">{{ item.close }}</span>{% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="px-6">
+            <a href="/contact/">
+                <button class="filled-white-button">Contact</button>
+            </a>
+        </div>
+        <div class="flex flex-wrap items-center w-full justify-between mx-auto pt-12 pb-24 px-2 sm:px-6 lg:px-16">
+            <div class="w-full md:w-1/3 pb-8 md:pb-0">
+              <p class="font-prox text-2xs text-white text-center md:text-left">&copy; <span id="copyright-date"></span> {{ siteData.siteName }}, All Rights Reserved</p>
+            </div>
+            <div class="w-full md:w-1/3 text-center mx-auto pb-8 md:pb-0">
+              <a class="" target="_blank" href="https://madebypioneer.com">
+              <img class="flex flex-wrap mx-auto text-center" src="https://inside.statesborogolfcarts.com/wp-content/uploads/2021/03/pioneer-design-marketing-logotype-inverted-rgb-1.svg" width="60px" height="30px" onmouseover="hover(this);" onmouseout="unhover(this);">
+              </a>
+            </div>
+            <div class="w-full md:w-1/3 sm:ml-auto text-center md:text-right pb-8 md:pb-0">
+              {# <div class="w-full mx-auto text-lg">
+                <a href="{{ global.siteSocial[0].instagram }}" target="_blank">
+                  <i class="text-lg mr-4 fab fa-instagram"></i>
+                </a>
+                <a href="{{ global.siteSocial[0].facebook }}" target="_blank">
+                  <i class="text-lg fab fa-facebook-square"></i>
+                </a>
+              </div> #}
+            </div>
+        </div>
+    </div>
+</footer>

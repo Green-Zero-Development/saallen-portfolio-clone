@@ -1,0 +1,439 @@
+@import './_includes/css/utilities.scss';
+
+html {
+  
+}
+
+body {
+    font-family: frank-new, sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 16px;
+    background-color: #f6f4ef;
+}
+
+h1 {
+    font-family: libre-franklin, sans-serif;
+    font-weight: 800;
+    line-height: 110%;
+    font-size: 48px;
+}
+
+h2 {
+    font-family: libre-franklin, sans-serif;
+    font-weight: 800;
+    line-height: 110%;
+    font-size: 40px;
+}
+
+h3 {
+    font-family: libre-franklin, sans-serif;
+    font-weight: 800;
+    line-height: 110%;
+    font-size: 32px;
+}
+
+h4 {
+    font-family: frank-new, sans-serif;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0.15em;
+    font-size: 24px;
+}
+
+h5 {
+    font-family: frank-new, sans-serif;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0.1em;
+    font-size: 16px;
+}
+
+h6 {
+    font-family: frank-new, sans-serif;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+}
+
+p {
+    font-family: frank-new, sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 16px;
+}
+
+.p-lg {
+    font-family: frank-new, sans-serif;
+    font-weight: 400;
+    line-height: 27px;
+    font-size: 18px;
+}
+
+a {
+  
+}
+
+button {
+
+}
+
+.filled-button {
+    background-color: #F9A41A;
+    font-family: frank-new, sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 110%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #183323;
+    border-radius: 24px;
+    padding: 17px 25px 15px 25px;
+    transition: .25s;
+}
+
+.filled-button:hover {
+    background-color: #fab648;
+    transition: .25s;
+}
+
+.filled-button:active {
+    transform: scale(0.95);
+    transition: .05s;
+}
+
+.filled-white-button {
+    background-color: #E3DFCF;
+    font-family: frank-new, sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 110%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #183323;
+    border-radius: 24px;
+    padding: 15px 60px 13px 60px;
+    transition: .25s;
+}
+
+.filled-white-button:hover {
+    background-color: #ccc9ba;
+    transition: .25s;
+}
+
+.filled-white-button:active {
+    transform: scale(0.95);
+    transition: .05s;
+}
+
+.yellow-outline-button {
+    background-color: transparent;
+    font-family: frank-new, sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 110%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #F9A41A;
+    border: 1px solid #F9A41A;
+    border-radius: 24px;
+    padding: 17px 25px 15px 25px;
+    transition: .25s;
+}
+
+.yellow-outline-button:hover {
+    background-color: #F9A41A;
+    color: white;
+    transition: .25s;
+}
+
+.yellow-outline-button:active {
+    transform: scale(0.95);
+    transition: .05s;
+}
+
+.lg-filled-button {
+    background-color: #F9A41A;
+    font-family: frank-new, sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 110%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #183323;
+    border-radius: 24px;
+    padding: 20px 45px 18px 45px;
+    transition: .25s;
+}
+
+.lg-filled-button:hover {
+    background-color: #fab648;
+    transition: .25s;
+}
+
+.lg-filled-button:active {
+    transform: scale(0.95);
+    transition: .05s;
+}
+
+.green-arrow-button {
+    position: relative;
+    font-family: frank-new, sans-serif;
+    font-weight: 800;
+    line-height: 32px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #485B43;
+    text-decoration: underline;
+    transition: .25s;
+}
+
+.green-arrow-button:after {
+    position: absolute;
+    content: '';
+    width: 18px;
+    height: 18px;
+    background-image: url('https://inside.saallen.com/wp-content/uploads/2021/08/button-arrow.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: auto;
+    bottom: auto;
+    margin: 8px 0 0 8px;
+}
+
+.green-arrow-button:hover {
+    color: #41523c;
+    transition: .25s;
+}
+
+.yellow-arrow-button {
+    position: relative;
+    font-family: frank-new, sans-serif;
+    font-weight: 800;
+    line-height: 32px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #FAB84C;
+    text-decoration: underline;
+    transition: .25s;
+}
+
+.yellow-arrow-button:after {
+    position: absolute;
+    content: '';
+    width: 18px;
+    height: 18px;
+    background-image: url('https://inside.saallen.com/wp-content/uploads/2021/08/button-arrow-yellow.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: auto;
+    bottom: auto;
+    margin: 8px 0 0 8px;
+}
+
+.yellow-arrow-button:hover {
+    color: #fab648;
+    transition: .25s;
+}
+
+ul {
+
+}
+
+ol {
+
+}
+
+li {
+  
+}
+
+address {
+
+}
+
+blockquote {
+
+}
+
+code {
+
+}
+
+.input-group {
+    padding: 0 0 25px 0;
+}
+
+label {
+    font-family: frank-new, sans-serif;
+    font-weight: 700;
+    color: #123330;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+input {
+    font-family: frank-new, sans-serif;
+    border: solid 1px #485B43;
+    color: #485B43;
+    padding: 12px 20px 12px 20px;
+    margin: 4px 0 0 0;
+    border-radius: 8px;
+}
+
+input::placeholder {
+  
+}
+
+textarea {
+    font-family: frank-new, sans-serif;
+    border: solid 1px #485B43;
+    color: #485B43;
+    padding: 12px 20px 12px 20px;
+    margin: 4px 0 0 0;
+    border-radius: 8px;
+}
+
+textarea::placeholder {
+  
+}
+
+select {
+
+}
+
+input[type="submit"] {
+    background-color: transparent;
+    font-family: frank-new, sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 110%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #183323;
+    border: 1px solid #313E2D;
+    border-radius: 24px;
+    padding: 15px 60px 13px 60px;
+    transition: .25s;
+}
+
+input[type="submit"]:hover {
+    background-color: #313E2D;
+    color: #E3DFCF;
+    cursor: pointer;
+    transition: .25s;
+}
+
+input[type="submit"]:active {
+    transform: scale(0.95);
+    transition: .05s;
+}
+
+img {
+  
+}
+
+.hero-paragraph {
+    color: #F6F4EF;
+    line-height: 32px;
+}
+
+.process-title {
+    color: #313E2D;
+}
+
+.process-paragraph {
+    color: #020302;
+}
+
+.process-timeline-point {
+    display: none;
+}
+
+.content-box-title {
+    color: #313E2D;
+}
+
+.content-box-paragraph {
+    color: #020302;
+}
+
+.contact-page-title {
+    color: #313E2D;
+}
+
+.contact-page-paragraph {
+    font-size: 18px;
+    color: #08100B;
+}
+
+.contact-page-details-title {
+    font-family: frank-new, sans-serif;
+    font-size: 24px;
+    color: #313E2D;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 0 0 12px 0;
+}
+
+.contact-page-details-paragraph {
+    font-size: 18px;
+    font-style: normal;
+    color: #08100B;
+    padding: 0 0 0 0;
+}
+
+.form-required {
+    color: #DA8906;
+}
+
+@media (min-width: $xs) {
+    
+}
+
+@media (min-width: $sm) {
+    
+}
+
+@media (min-width: $md) {
+    .process-left {
+        border-right-style: solid;
+        border-right-width: 3px;
+        border-color: #AAB2AA;
+    }
+
+    .process-left-icon {
+        margin-right: -9.5px;
+    }
+
+    .process-right {
+        border-left-style: solid;
+        border-left-width: 3px;
+        border-color: #AAB2AA;
+    }
+
+    .process-right-icon {
+        margin-left: -9.5px !important;
+    }
+
+    .process-timeline-point {
+        display: block;
+    }
+}
+
+@media (min-width: $lg) {
+    
+}
+
+@media (min-width: $xl) {
+    
+}
+
+@media (min-width: $xxl) {
+    
+}
+
+@media (min-width: $xxxl) {
+    
+}

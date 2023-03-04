@@ -1,0 +1,17 @@
+[build]
+  publish = "_site"
+  command = "eleventy"
+
+[[redirects]]
+  from = "https://saallen.netlify.app/*"
+  to = "https://www.saallen.com/:splat"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "no-referrer"
+    X-Content-Type-Options = "nosniff"

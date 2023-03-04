@@ -1,0 +1,60 @@
+<header id="header-container" class="header-container">
+    <div class="flex flex-wrap items-center justify-between w-full bg-darkgreen text-sm py-5 lg:py-8 px-8 lg:px-16">
+        <a class="w-full md:w-1/3" href="/">
+            <img class="hidden md:block site-logo" src="{{ global.siteLogos[0].acf.logo.url }}" />
+            <img class="md:hidden mx-auto site-mobile-logo" src="{{ global.siteLogos[0].acf.logo.url }}" />
+        </a>
+        <ul class="hidden md:flex md:w-2/3 items-center">
+            {% for item in menus.mainMenu %}
+            <a class="{% if loop.first == true %}ml-auto{% endif %} {% if loop.last == false %}pr-12{% endif %}" href="{{ item.url }}">
+                <li class="relative desktop-menu-item {% if loop.last == true %}last-desktop-menu-item{% endif %}">
+                    {{ item.title }}
+                    <div class="opacity-0 absolute w-full h-1 desktop-menu-hover"></div>
+                </li>
+            </a>
+            {% endfor %}
+        </ul>
+    </div>
+    <img id="mobile-menu-toggle" class="fixed md:hidden w-12 bottom-0 left-0 right-0 mx-auto mobile-menu-icon" src="https://inside.saallen.com/wp-content/uploads/2021/09/mobile-menu-icon.png" status="closed" />
+    <div id="mobile-menu-close" class="absolute top-0 w-full py-20 mobile-menu-close mobile-menu-close-collaspe"></div>
+    <div id="mobile-menu" class="absolute top-0 flex flex-wrap items-center w-full h-screen text-sm text-black uppercase letter-1 mt-32 overflow-scroll mobile-menu mobile-menu-collaspe">
+        <ul id="mobile-items" class="flex flex-wrap w-full h-full pt-6 px-6 sm:px-16 overflow-scroll mobile-items mobile-items-collaspe">
+            {% for item in menus.mobileMenu %}
+            {% if item.children|length %}
+                <li class="relative flex flex-wrap w-full justify-between pt-6 pb-4 mobile-menu-single mobile-menu-with-children">
+                    {{ item.title }}<i class="text-xl ml-auto mobile-children-icon fas fa-angle-down"></i>
+                    <ul class="h-0 invisible pt-0 w-5/6 xs:w-full font-normal mobile-menu-children">
+                        {% for item1 in item.children %}
+                        <a class="w-full pt-6 pb-4" href="{{ item1.url }}">
+                            <li class="pb-2">{{ item1.title }}</li>
+                        </a>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% else %}
+                <a class="w-full" href="{{ item.url }}">
+                    <li class="pt-6 pb-4 {% if loop.last == false %}mobile-menu-single{% endif %}">{{ item.title }}</li>
+                </a>
+            {% endif %}
+            {% endfor %}
+            <div class="flex flex-wrap w-full py-4">
+                <address class="w-full">
+                    {% for item in global.siteAddresses[0].acf.value_list %}{% if item.type == 'Headquarters' %}{{ item.street }}
+                    <br />
+                    {{ item.city }}, {{ item.state }} {{ item.zip }}
+                    {% endif %}{% endfor %}
+                </address>
+                <a class="mobile-tele" href='{% for item in global.sitePhone[0].acf.value_list %}{% if item.type == "Primary" %}{{ item.value }}{% endif %}{% endfor %}'>
+                    {% for item in global.sitePhone[0].acf.value_list %}{% if item.type == "Primary" %}{{ item.value }}{% endif %}{% endfor %}
+                </a>
+                <h6 class="w-full font-semibold pt-6 pb-4">Hours</h6>
+                {% for item in global.businessHours[0].acf.value_list %}
+                <div class="w-full mobile-hours">
+                    {{ item.days }}, {% if item.closed_for_days.length %}Closed{% else %}<span class="lowercase">{{ item.open }}</span><span>-</span><span class="lowercase">{{ item.close }}</span>{% endif %}
+                </div>
+                {% endfor %}
+                <div class="py-56"></div>
+            </div>
+        </ul>
+    </div>
+</header>

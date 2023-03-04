@@ -1,0 +1,53 @@
+{% include "global/inner-hero.njk" %}
+
+{% for item in wpage.serviceList %}
+
+{% if loop.index % 2 %}
+<style>
+    .service-img-{{ item.image.id }} {
+        background-image: url('{{ item.image.url }}');
+    }
+</style>
+<div class="flex flex-wrap items-start md:items-center max-w-7xl mx-auto pt-24 px-6">
+    <div class="w-full sm:w-5/12 bg-cover bg-norepeat mx-auto py-24 md:py-48 rounded-lg service-img-{{ item.image.id }}">
+
+    </div>
+    <div class="w-full sm:w-5/12 my-6 md:mt-0 mx-auto">
+        <h2 class="text-3xl md:text-h2-init uppercase pb-3 content-box-title">{{ item.title }}</h2>
+        <p class="text-sm md:text-p-lg-init pb-6 content-box-paragraph">{{ item.paragraph }}</p>
+        <a href="{{ item.button.link }}">
+            <button class="text-base green-arrow-button">{{ item.button.text }}</button>
+        </a>
+    </div>
+</div>
+{% else %}
+<style>
+    .service-img-{{ item.image.id }} {
+        background-image: url('{{ item.image.url }}');
+    }
+</style>
+<div class="flex flex-wrap items-start md:items-center flex-col-reverse sm:flex-row max-w-7xl my-6 md:mt-0 mx-auto pt-24 px-6">
+    <div class="w-full sm:w-5/12 mx-auto">
+        <h2 class="text-3xl md:text-h2-init uppercase pb-3 content-box-title">{{ item.title }}</h2>
+        <p class="text-sm md:text-p-lg-init pb-6 content-box-paragraph">{{ item.paragraph }}</p>
+        <a href="{{ item.button.link }}">
+            <button class="text-base green-arrow-button">{{ item.button.text }}</button>
+        </a>
+    </div>
+    <div class="w-full sm:w-5/12 bg-cover bg-norepeat mb-6 mx-auto py-24 md:py-48 rounded-lg service-img-{{ item.image.id }}">
+
+    </div>
+</div>
+{% endif %}
+
+{% endfor %}
+<div id="faqs" class="max-w-7xl mx-auto pt-32 pb-24 px-6 md:px-12 xl:px-20">
+    <h3 class="text-green font-libre-franklin font-extrabold pb-6 text-center">FAQS </h3>
+ {% for item in faqs %}
+ <div class="flex items-center md:pt-5"> 
+    <i class="fas fa-circle text-orange"></i> <h4 class=" text-xs md:text-h4-init text-green leading-none faq-question font-frank-new uppercase pl-3">{{ item.question }}</h4>
+</div>
+<p class="text-xs md:text-p-lg-init mb-3 text-green font-frank-new leading-tight md:leading-3 pt-1 pb-5 faq-answer">{{ item.answer }}</p>
+    {% endfor %}
+</div>
+{% include "global/bottom-cta.njk" %}

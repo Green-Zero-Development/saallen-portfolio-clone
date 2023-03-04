@@ -1,0 +1,39 @@
+@import './_includes/css/utilities.scss';
+
+@media (min-width: $xs) {
+   
+}
+
+@media (min-width: $sm) {
+    
+}
+
+@media (min-width: $md) {
+    .swiper {
+        margin-right: -50px !important;
+    }
+}
+
+@media (min-width: $lg) {
+    
+}
+
+@media (min-width: $xl) {
+    .swiper {
+        margin-right: -100px !important;
+    }
+}
+
+@media (min-width: $xxl) {
+    
+}
+
+@media (min-width: 1441px) {
+    .swiper {
+        margin-right: auto !important;
+    }
+}
+
+@media (min-width: $xxxl) {
+
+}

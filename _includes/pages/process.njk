@@ -1,0 +1,46 @@
+{% set processTimeline = [] %}
+{% for item in process %}
+    {% set processTimeline = (processTimeline.push({iconImg: item.icon, iconAlt: item.iconAlt, title: item.title, paragraph: item.paragraph, weight: item.stepNumber}), processTimeline) %}
+{% endfor %}
+
+{% include "global/inner-hero.njk" %}
+
+<style>
+    
+</style>
+
+<div class="py-24 process-timeline">
+    {% for item in processTimeline | sortBy('weight') %}
+        {% if item.weight % 2 %}
+            <div class="flex {% if loop.first != true %}md:-mt-56{% endif %}">
+                <div class="flex flex-wrap w-full md:w-1/2 text-center md:text-right py-12 md:py-24 process-left">
+                    <div class="flex w-auto mx-auto md:ml-auto pb-8 process-left-icon">
+                        <img class="ml-auto md:pr-12 lg:pr-24" src="{{ item.iconImg }}" alt="{{ item.iconAlt }}" />
+                        <img class="ml-auto process-timeline-point" src="https://inside.saallen.com/wp-content/uploads/2021/09/timeline-point.svg" />
+                    </div>
+                    <div class="w-full md:pr-12 lg:pr-24">
+                        <h3 class="uppercase pb-3 process-title">Step {{ item.weight }}</h3>
+                        <p class="max-w-xs lg:max-w-sm px-6 md:px-0 mx-auto md:mr-0 md:ml-auto process-paragraph">{{ item.paragraph }}</p>
+                    </div>
+                </div>
+                <div class="hidden md:block w-1/2"></div>
+            </div>
+        {% else %}
+            <div class="flex {% if loop.first != true %}md:-mt-56{% endif %}">
+                <div class="hidden md:block w-1/2 process-left"></div>
+                <div class="flex flex-wrap w-full md:w-1/2 text-center md:text-left py-12 md:py-24">
+                    <div class="flex w-auto mx-auto md:ml-0 pb-8 process-right-icon">
+                        <img class="ml-auto process-timeline-point" src="https://inside.saallen.com/wp-content/uploads/2021/09/timeline-point.svg" />
+                        <img class="ml-auto md:pl-12 lg:pl-24" src="{{ item.iconImg }}" alt="{{ item.iconAlt }}" />
+                    </div>
+                    <div class="w-full md:pl-12 lg:pl-24">
+                        <h3 class="uppercase pb-3 process-title">Step {{ item.weight }}</h3>
+                        <p class="max-w-xs lg:max-w-sm px-6 md:px-0 mx-auto md:ml-0 md:mr-auto process-paragraph">{{ item.paragraph }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% include "global/bottom-cta.njk" %}

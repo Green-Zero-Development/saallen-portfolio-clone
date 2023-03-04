@@ -1,0 +1,154 @@
+{% set processTimeline = [] %}
+{% for item in process %}
+    {% set processTimeline = (processTimeline.push({iconImg: item.icon, iconAlt: item.iconAlt, title: item.title, paragraph: item.paragraph, weight: item.stepNumber}), processTimeline) %}
+{% endfor %}
+
+<style>
+.home-hero-section {
+    background-image: url('https://inside.saallen.com/wp-content/uploads/2021/08/home-hero-image.jpg');
+}
+.home-hero-title {
+    color: #F6F4EF;
+}
+.home-hero-paragraph {
+    color: #D1C9AE;
+    line-height: 32px;
+}
+.home-service-section-title {
+    color: #313E2D;
+}
+.home-service-section-paragraph {
+    color: #020302;
+}
+.home-service-title {
+    color: #313E2D;
+    letter-spacing: 0.1em;
+}
+.home-service-paragraph {
+    color: #020302;
+}
+</style>
+
+<div class="py-48 bg-cover bg-norepeat text-center home-hero-section">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl md:text-h1-init uppercase px-6 home-hero-title">{{ homePage.heroTitle }}</h1>
+        <p class="text-base sm:text-lg md:text-2xl font-bold pt-5 pb-8 px-8 md:px-32 home-hero-paragraph">{{ homePage.heroParagraph }}</p>
+        <a href="{{ homePage.heroButtonLink }}">
+            <button class="lg-filled-button">{{ homePage.heroButtonText }}</button>
+        </a>
+    </div>
+</div>
+
+<div class="pt-32">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="pb-3 uppercase home-service-section-title">{{ homePage.servicesSection.title }}</h2>
+        <p class="text-lg leading-normal px-4 home-service-section-paragraph">{{ homePage.servicesSection.paragraph }}</p>
+    </div>
+</div>
+
+<div class="flex flex-wrap sm:flex-nowrap max-w-6xl pt-12 pb-32 px-6 mx-auto text-center sm:text-left">
+    {% for item in homePage.servicesSection.services %}
+    <div class="w-full sm:w-1/2 pb-12 sm:pb-0 mx-auto sm:mr-6 lg:mr-16">
+        <img class="w-full mb-8 rounded-lg" src="{{ item.image.url }}" />
+        <h3 class="font-frank-new font-medium text-2xl uppercase pb-4 home-service-title">{{ item.title }}</h3>
+        <p class="sm:w-11/12 pb-8 home-service-paragraph">{{ item.paragraph }}</p>
+        <a href="{{ item.button.link }}">
+            <button class="text-base green-arrow-button">{{ item.button.text }}</button>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+<style>
+    .home-process-section {
+        background-image: url('https://inside.saallen.com/wp-content/uploads/2021/09/process-slider-bk.jpg');
+        overflow: hidden;
+    }
+    .home-process-section-title {
+        color: #D1C9AE;
+    }
+    .home-process-section-subtitle {
+        font-family: libre-franklin, sans-serif;
+        font-size: 16px;
+        font-weight: 800;
+        color: #93AB8C;
+        letter-spacing: 0.15em;
+    }
+    .swiper-scrollbar {
+        width: 100%;
+        background-color: #AAB2AA;
+    }
+    .swiper-scrollbar-drag {
+        background-color: #F9A41A;
+        height: 4px;
+        border-radius: 6em;
+    }
+    .swiper-slide {
+        background-color: #f6f4ef;
+        border-radius: 8px;
+    }
+</style>
+
+<div class="pt-16 pb-16 home-process-section">
+    <div class="flex items-start md:items-center justify-between max-w-6xl mx-auto pb-12 pl-6 pr-12 md:pr-24 md:px-12 xl:pl-6 xxl:pr-12">
+        <div class="flex flex-wrap items-center max-w-2xl">
+            <h2 class="text-3xl sm:text-h2-init uppercase pr-5 home-process-section-title">{{ homePage.processSection.title }}</h2>
+            <p class="pt-1 home-process-section-subtitle">{{ homePage.processSection.subtitle }}</p>
+        </div>
+        <a href="{{ homePage.processSection.button.link }}" class="w-1/2 text-right">
+            <button class="text-sm sm:text-base yellow-arrow-button">{{ homePage.processSection.button.text }}</button>
+        </a>
+    </div>
+    <div class="w-5/6 sm:w-11/12 lg:w-11/12 max-w-8xl ml-auto xxl:mx-auto swiper">
+        <div class="swiper-wrapper">
+            {% for item in homePage.processSection.processes | sortBy('weight') %}
+                <div class="mb-8 py-6 px-6 swiper-slide">
+                    <img class="pb-8" src="https://inside.saallen.com/wp-content/uploads/2021/08/step-icon.svg" />
+                    <h4 class="font-frank-new font-medium text-2xl uppercase pb-4">{{ item.title }}</h4>
+                    <p class="sm:w-11/12 pb-12 home-service-paragraph">{{ item.paragraph }}</p>
+                    <a href="/process">
+                        <button class="text-base green-arrow-button">{{ item.button.text }}</button>
+                    </a>
+                </div>
+            {% endfor %}
+            <div class="hidden md:block xxxl:hidden opacity-0 mb-8 mr-24 py-6 px-6 swiper-slide">
+                
+            </div>
+            <div class="hidden md:block xxxl:hidden opacity-0 mb-8 mr-24 py-6 px-6 swiper-slide">
+                
+            </div>
+            <div class="hidden xl:block xxxl:hidden opacity-0 mb-8 mr-24 py-6 px-6 swiper-slide">
+                
+            </div>
+        </div>
+        <div class="flex items-center">
+            <div class="flex">
+                <img class="w-6 mr-4 hover:cursor-pointer swiper-button-prev" src="https://inside.saallen.com/wp-content/uploads/2021/09/button-arrow-yellow-back.svg" />
+                <img class="w-6 mr-4 hover:cursor-pointer swiper-button-next" src="https://inside.saallen.com/wp-content/uploads/2021/08/button-arrow-yellow.svg" />
+            </div>
+            <div class="rounded-lg swiper-scrollbar"></div>
+        </div>
+    </div>
+</div>
+
+<style>
+.home-about-section-title {
+    color: #313E2D;
+}
+.home-about-section-paragraph {
+    color: #020302;
+}
+</style>
+
+<div class="flex flex-wrap items-start md:items-center flex-col-reverse sm:flex-row max-w-6xl mx-auto py-24 px-6 home-about-section">
+    <div class="w-full sm:w-1/2">
+        <h2 class="uppercase pb-3 home-about-section-title">{{ homePage.aboutSection.title }}</h2>
+        <p class="p-lg pb-6 pr-0 sm:pr-12 md:pr-24 home-about-section-paragraph">{{ homePage.aboutSection.paragraph }}</p>
+        <a href="{{ homePage.aboutSection.button.link }}">
+            <button class="text-base green-arrow-button">{{ homePage.aboutSection.button.text }}</button>
+        </a>
+    </div>
+    <img class="w-full sm:w-1/2 mb-6 rounded-lg" src="{{ homePage.aboutSection.image.url }}" alt="{{ homePage.aboutSection.image.alt }}"/>
+</div>
+
+{% include "global/bottom-cta.njk" %}

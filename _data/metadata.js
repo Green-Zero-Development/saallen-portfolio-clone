@@ -1,0 +1,1 @@
+module.exports = { baseUrl: "https://inside.saallen.com", apiUrl: "https://inside.saallen.com/wp-json/wp/v2", cacheInterval: '1m' };

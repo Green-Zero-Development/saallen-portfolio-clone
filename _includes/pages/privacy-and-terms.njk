@@ -1,0 +1,21 @@
+<style>
+    .policy-text h1, .policy-text h2, .policy-text h3, .policy-text h4, .policy-text h5, .policy-text h6 {
+        color: #313E2D;
+        padding-bottom: 25px;
+    }
+    .policy-text ul, .policy-text ol {
+        list-style: disc;
+        list-style-position: inside;
+        padding-bottom: 25px;
+    }
+    .policy-text p {
+        color: #020302;
+        padding-bottom: 25px;
+    }
+</style>
+
+{% include "global/inner-hero.njk" %}
+
+<div class="max-w-6xl mx-auto py-12 px-4 policy-text">
+    <p>{{ wpage.policyText | safe }}</p>
+</div>
